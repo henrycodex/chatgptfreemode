@@ -4,8 +4,13 @@ import streamlit as st
 from streamlit_chat import message
 
 import openai
-from config import open_api_key
+import open_api_key
 openai.api_key = os.getenv("OPEN_API_KEY")
+
+from dotenv import dotenv_values
+
+config = dotenv_values(".env")
+
 
 # openAI code
 def openai_create(prompt):
