@@ -4,7 +4,7 @@ from streamlit_chat import message
 import openai
 import os
 
-os.environ["henryezell"]
+os.apikey["henryezell"]
 
 
 
