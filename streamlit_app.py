@@ -1,4 +1,8 @@
 import openai
+from dotenv import dotenv_values
+
+config = dotenv_values(".env")
+
 import os
 import streamlit as st
 from streamlit_chat import message
