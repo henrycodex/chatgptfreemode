@@ -71,7 +71,5 @@ if user_input:
     st.session_state.past.append(user_input)
     st.session_state.generated.append(output[0])
 
-if st.session_state['generated']:
-
 generated_text = st.session_state["generated"][i][0][1]
 st.write("TextWizard: " + generated_text)
