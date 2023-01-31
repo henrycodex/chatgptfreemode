@@ -24,7 +24,7 @@ def openai_create(prompt):
     top_p=1,
     frequency_penalty=0.3,
     presence_penalty=0.2,
-    stop=[" Human:", " TextWizard:"]
+    stop=[" Human:", " TextWizardAI:"]
     )
 
     return response.choices[0].text
@@ -42,11 +42,11 @@ def chatgpt_clone(input, history):
 
 # Streamlit App
 st.set_page_config(
-    page_title="TextWizard BETA",
+    page_title="TextWizardAI Chatbot",
     page_icon=":robot:"
 )
 
-st.header("TextWizard BETA")
+st.header("TextWizardAI Chatbot")
 
 history_input = []
 
