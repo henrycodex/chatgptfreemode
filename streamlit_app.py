@@ -75,4 +75,3 @@ if st.session_state['generated']:
 
 generated_text = st.session_state["generated"][i][0][1]
 st.write("TextWizard: " + generated_text)
-
