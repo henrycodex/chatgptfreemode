@@ -1,9 +1,11 @@
+import openai
+import os
 import streamlit as st
 from streamlit_chat import message
 
 import openai
 from config import open_api_key
-openai.api_key = open_api_key
+openai.api_key = os.getenv("OPEN_API_KEY")
 
 # openAI code
 def openai_create(prompt):
@@ -16,7 +18,7 @@ def openai_create(prompt):
     top_p=1,
     frequency_penalty=0,
     presence_penalty=0.6,
-    stop=[" Human:", " AI:"]
+    stop=[" Human:", " TextWizard:"]
     )
 
     return response.choices[0].text
@@ -34,11 +36,11 @@ def chatgpt_clone(input, history):
 
 # Streamlit App
 st.set_page_config(
-    page_title="ChatGPT Free Mode",
+    page_title="TextWizard BETA"",
     page_icon=":robot:"
 )
 
-st.header("ChatGPT with NO Limits or Content Filters")
+st.header("TextWizard BETA")
 
 history_input = []
 
