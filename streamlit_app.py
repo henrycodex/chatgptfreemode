@@ -36,7 +36,7 @@ def chatgpt_clone(input, history):
 
 # Streamlit App
 st.set_page_config(
-    page_title="TextWizard BETA"",
+    page_title="TextWizard BETA",
     page_icon=":robot:"
 )
 
