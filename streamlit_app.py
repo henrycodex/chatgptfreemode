@@ -74,5 +74,5 @@ if user_input:
 if st.session_state['generated']:
 
     for i in range(len(st.session_state['generated'])-1, -1, -1):
-        message(st.session_state["generated"][i], key=str(i))
-        message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
+        st.write("TextWizard: " + st.session_state["generated"][i])
+        st.write("You: " + st.session_state['past'][i])
