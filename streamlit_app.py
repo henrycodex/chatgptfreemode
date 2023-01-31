@@ -3,7 +3,7 @@ from streamlit_chat import message
 
 import openai
 import os
-openai.api_key = "<your_openai_api_key>"
+openai.api_key = "secretkey"
 
 
 
