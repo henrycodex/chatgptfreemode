@@ -19,11 +19,11 @@ def openai_create(prompt):
     response = openai.Completion.create(
     model="text-davinci-003",
     prompt=prompt,
-    temperature=0.9,
-    max_tokens=150,
+    temperature=1,
+    max_tokens=1000,
     top_p=1,
-    frequency_penalty=0,
-    presence_penalty=0.6,
+    frequency_penalty=0.3,
+    presence_penalty=0.2,
     stop=[" Human:", " TextWizard:"]
     )
 
