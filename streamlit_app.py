@@ -3,10 +3,7 @@ import os
 import streamlit as st
 from streamlit_chat import message
 
-openai.api_key = os.environ.get("OPEN_API_KEY")
-
-if not openai.api_key:
-    raise Exception("OPEN_API_KEY environment variable not set")
+openai.api_key = config['API_KEY']
 
 # openAI code
 def openai_create(prompt):
