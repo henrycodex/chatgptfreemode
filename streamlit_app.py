@@ -75,37 +75,11 @@ if st.session_state['generated']:
     for i in range(len(st.session_state['generated'])-1, -1, -1):
         message(st.session_state["generated"][i], key=str(i))
         message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
-
         
-        from firebase_admin import credentials, firestore, initialize_app
+        
+import firebase_admin
+from firebase_admin import credentials
 
-cred = credentials.Certificate("path/to/serviceAccountKey.json")
-default_app = initialize_app(cred)
-db = firestore.client()
+cred = credentials.Certificate("serviceAccountKey.json")
+firebase_admin.initialize_app(cred)
 
-# sign up
-def sign_up(email, password):
-    try:
-        user = auth.create_user(
-            email=email,
-            password=password
-        )
-        print("Successfully created new user: {0}".format(user.uid))
-    except Exception as e:
-        print(e)
-
-# sign in
-def sign_in(email, password):
-    try:
-        user = auth.sign_in_with_email_and_password(email, password)
-        print("Successfully signed in as user: {0}".format(user.uid))
-    except Exception as e:
-        print(e)
-
-# sign out
-def sign_out():
-    try:
-        auth.sign_out()
-        print("Successfully signed out.")
-    except Exception as e:
-        print(e)
