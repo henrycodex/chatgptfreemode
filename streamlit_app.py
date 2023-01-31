@@ -1,13 +1,10 @@
 import openai
-from dotenv import dotenv_values
-
-config = dotenv_values(".env")
-
 import os
 import streamlit as st
 from streamlit_chat import message
 
-openai.api_key = config['API_KEY']
+from config import open_api_key
+openai.api_key = open_api_key
 
 # openAI code
 def openai_create(prompt):
