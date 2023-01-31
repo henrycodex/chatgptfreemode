@@ -1,1 +1,0 @@
-open_api_key = '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'
