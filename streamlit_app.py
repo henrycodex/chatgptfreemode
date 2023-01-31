@@ -1,8 +1,7 @@
-import openai
-import os
 import streamlit as st
 from streamlit_chat import message
 
+import openai
 from config import open_api_key
 openai.api_key = open_api_key
 
