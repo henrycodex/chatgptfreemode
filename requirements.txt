@@ -1,4 +1,4 @@
 openai
 streamlit
 streamlit-chat
-firebase-admin
+os
