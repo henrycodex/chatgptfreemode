@@ -3,7 +3,6 @@ import os
 import streamlit as st
 from streamlit_chat import message
 
-import open_api_key
 openai.api_key = open_api_key
 
 # openAI code
