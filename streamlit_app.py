@@ -56,6 +56,9 @@ def get_text():
 
 user_input = get_text()
 
+if i < len(st.session_state["generated"]):
+    message(st.session_state["generated"][i][1], is_bot=True, key=str(i) + '_bot')
+
 
 if user_input:
     output = chatgpt_clone(user_input, history_input)
