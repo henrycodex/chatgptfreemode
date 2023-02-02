@@ -62,8 +62,8 @@ if user_input:
     history_input.append([user_input, output])
     st.session_state.past.append(user_input)
     st.session_state.generated.append(output[0])
-if st.session_state['generated']:
 
+if st.session_state['generated']:
     for i in range(len(st.session_state['generated'])-1, -1, -1):
-        message(st.session_state["generated"][i], key=str(i))
+        message(st.session_state["generated"][i][1], is_bot=True, key=str(i) + '_bot')
         message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
