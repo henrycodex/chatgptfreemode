@@ -56,7 +56,7 @@ def get_text():
 
 user_input = get_text()
 
-if i < len(st.session_state["generated"]):
+for i in range(len(st.session_state['generated'])-1, -1, -1):
     message(st.session_state["generated"][i][1], is_bot=True, key=str(i) + '_bot')
 
 
