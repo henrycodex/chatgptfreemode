@@ -41,16 +41,24 @@ if 'past' not in st.session_state:
 
 def get_text():
     input_text = st.text_input("You: ", key="input")
-    return input_text
+    if input_text:
+        st.empty() # Clearing the text box after input is processed
+    return input_text 
+
+#...
 
 user_input = get_text()
 
 if user_input:
-    output = chatgpt_clone(user_input)
+    output = chatgpt_clone(user_input, history_input)
+    history_input.append([user_input, output])
     st.session_state.past.append(user_input)
-    st.session_state.generated.append(output)
+    st.session_state.generated.append(output[0])
 
 if st.session_state['generated']:
     for i in range(len(st.session_state['generated'])-1, -1, -1):
         message(st.session_state["generated"][i], key=str(i))
         message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
+        
+
+
