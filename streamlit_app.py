@@ -8,8 +8,8 @@ openai.api_key = os.getenv("OPEN_API_KEY")
 def openai_create(prompt):
     response = openai.Completion.create(
         model="text-davinci-003",
-        prompt=prompt,
-        temperature=0.5,
+        prompt=The following is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly.\n\nHuman: Hello, who are you?\nAI: I am an AI created by OpenAI. How can I help you today?\n,
+        temperature=0.1,
         max_tokens=1000,
         top_p=1,
         frequency_penalty=0.1,
