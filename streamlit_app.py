@@ -11,11 +11,11 @@ def openai_create(prompt):
     response = openai.Completion.create(
     model="text-davinci-003",
     prompt=prompt,
-    temperature=1,
+    temperature=0.5,
     max_tokens=1000,
     top_p=1,
-    frequency_penalty=0.3,
-    presence_penalty=0.2,
+    frequency_penalty=0.1,
+    presence_penalty=0.1,
     stop=[" Human:", " TextWizardAI:"]
     )
 
@@ -56,17 +56,14 @@ def get_text():
 
 user_input = get_text()
 
-for i in range(len(st.session_state['generated'])-1, -1, -1):
-    message(st.session_state["generated"][i][1], is_bot=True, key=str(i) + '_bot')
-
 
 if user_input:
     output = chatgpt_clone(user_input, history_input)
     history_input.append([user_input, output])
     st.session_state.past.append(user_input)
     st.session_state.generated.append(output[0])
-
 if st.session_state['generated']:
+
     for i in range(len(st.session_state['generated'])-1, -1, -1):
-        message(st.session_state["generated"][i][1], is_bot=True, key=str(i) + '_bot')
+        message(st.session_state["generated"][i], key=str(i))
         message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
