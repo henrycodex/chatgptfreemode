@@ -1,17 +1,9 @@
 import streamlit as st
 from streamlit_chat import message
-
 import openai
 import os
 
-
-from dotenv import load_dotenv
-
-
-load_dotenv()
 openai.api_key = os.getenv("OPEN_API_KEY")
-
-
 
 # openAI code
 def openai_create(prompt):
