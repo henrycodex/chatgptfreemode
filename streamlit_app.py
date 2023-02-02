@@ -9,7 +9,7 @@ def openai_create(prompt):
     response = openai.Completion.create(
         model="text-davinci-003",
         prompt=prompt,
-        temperature=0.1,
+        temperature=0.5,
         max_tokens=1000,
         top_p=1,
         frequency_penalty=0.1,
@@ -39,6 +39,10 @@ if 'generated' not in st.session_state:
 if 'past' not in st.session_state:
     st.session_state['past'] = []
 
+def get_text():
+    input_text = st.text_input("You: ", key="input")
+    return input_text
+
 user_input = get_text()
 
 if user_input:
@@ -50,11 +54,3 @@ if st.session_state['generated']:
     for i in range(len(st.session_state['generated'])-1, -1, -1):
         message(st.session_state["generated"][i], key=str(i))
         message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
-
-if st.session_state['generated']:
-    for i in range(len(st.session_state['generated'])-1, -1, -1):
-        message(st.session_state["generated"][i], key=str(i))
-        message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
-        
-
-
