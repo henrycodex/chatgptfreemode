@@ -31,7 +31,7 @@ st.set_page_config(
     page_icon=":robot:"
 )
 
-st.header("ChatGPT Free)
+st.header("ChatGPT Free")
 
 if 'generated' not in st.session_state:
     st.session_state['generated'] = []
