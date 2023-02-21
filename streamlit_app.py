@@ -9,12 +9,12 @@ def openai_create(prompt):
     response = openai.Completion.create(
         model="text-davinci-003",
         prompt=prompt,
-        temperature=0.5,
+        temperature=0.9,
         max_tokens=1000,
         top_p=1,
         frequency_penalty=0.1,
         presence_penalty=0.1,
-        stop=[" Human:", " TextWizardAI:"]
+        stop=[" Human:", " ChatGPT:"]
     )
 
     return response.choices[0].text
@@ -27,11 +27,11 @@ def chatgpt_clone(input_, history=None):
     return output
 
 st.set_page_config(
-    page_title="TextWizardAI Chatbot",
+    page_title="ChatGPT Free",
     page_icon=":robot:"
 )
 
-st.header("TextWizardAI Chatbot")
+st.header("ChatGPT Free)
 
 if 'generated' not in st.session_state:
     st.session_state['generated'] = []
@@ -40,7 +40,7 @@ if 'past' not in st.session_state:
     st.session_state['past'] = []
 
 def get_text():
-    input_text = st.text_input("You: ", key="input")
+    input_text = st.text_input("Human: ", key="input")
     return input_text
 
 user_input = get_text()
