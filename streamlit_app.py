@@ -3,7 +3,7 @@ from streamlit_chat import message
 import openai
 import os
 
-openai.api_key = os.getenv("OPEN_API_KEY")
+openai.api_key = ("OPEN_API_KEY")
 
 def openai_create(prompt):
     response = openai.Completion.create(
